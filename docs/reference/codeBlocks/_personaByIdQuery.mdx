@@ -13,69 +13,36 @@ import CodeBlock from '@theme/CodeBlock';
     dlc,
     treasure,
     treasureMods {
-      arcana,
-      modifier
+      ...TreasureModFragment
     },
     stats {
-      strength,
-      magic,
-      endurance,
-      agility,
-      luck
+      ...PersonaStatsFragment
     },
     affinities {
-      phys,
-      gun,
-      fire,
-      ice,
-      elec,
-      wind,
-      psy,
-      nuke,
-      bless,
-      curse
+      ...PersonaAffinitiesFragment
     },
     skills {
       level,
       skill {
-        skillId,
-        name,
-        type,
-        effect,
-        cost
+        ...SkillFragment
       }
     },
     trait {
-      traitId,
-      name,
-      category,
-      description
+      ...TraitFragment
     },
     background,
     fusionQuote,
     normalItem {
-      itemId,
-      name,
-      description
+      ...ItemFragment
     },
     fusionAlarmItem {
-      itemId,
-      name,
-      description
+      ...ItemFragment
     },
     normalSkillCard {
-      skillId,
-      name,
-      type,
-      effect,
-      cost
+      ...SkillFragment
     },
     fusionAlarmSkillCard {
-      skillId,
-      name,
-      type,
-      effect,
-      cost
+      ...SkillFragment
     }
   }
 }

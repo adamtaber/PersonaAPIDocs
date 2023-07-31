@@ -2,8 +2,16 @@ import CodeBlock from '@theme/CodeBlock';
 
 
 <CodeBlock language="jsx" title="QUERY" showLineNumbers>{
-`query allPersonas($dlc: Boolean) {
-  allPersonas(dlc: $dlc) {
+`query personaFusionById(
+  $persona1Id: Int, 
+  $persona2Id: Int, 
+  $dlc: Boolean
+) {
+  personaFusionById(
+    persona1Id: $persona1Id, 
+    persona2Id: $persona2Id, 
+    dlc: $dlc
+  ) {
     personaId,
     name,
     arcana,

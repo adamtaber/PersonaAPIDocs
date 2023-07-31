@@ -7,6 +7,14 @@ import AllPersonasQuery from './codeBlocks/_allPersonasQuery.mdx'
 import AllPersonasResponse from './codeBlocks/_allPersonasResponse.mdx'
 import PersonaByIdQuery from './codeBlocks/_personaByIdQuery.mdx'
 import PersonaByIdResponse from './codeBlocks/_personaByIdResponse.mdx'
+import PersonaByNameQuery from './codeBlocks/_personaByNameQuery.mdx'
+import PersonaByNameResponse from './codeBlocks/_personaByNameResponse.mdx'
+import PersonaFusionByIdQuery from './codeBlocks/_personaFusionByIdQuery.mdx'
+import PersonaFusionByIdResponse from './codeBlocks/_personaFusionByIdResponse.mdx'
+import PersonaFusionByNameQuery from './codeBlocks/_personaFusionByNameQuery.mdx'
+import PersonaFusionByNameResponse from './codeBlocks/_personaFusionByNameResponse.mdx'
+import PersonaRecipesByIdQuery from './codeBlocks/_personaRecipesByIdQuery.mdx'
+import PersonaRecipesByIdResponse from './codeBlocks/_personaRecipesByIdResponse.mdx'
 import styles from './docs.module.css'
 
 <h2>allPersonas</h2>
@@ -16,21 +24,31 @@ import styles from './docs.module.css'
     <div>
       <p style={{marginTop: '25px'}}><b>Parameters</b></p>
       <div className={styles.divider}/>
-      <p>No parameters.</p>
-    </div>
-    <div>
-      <p style={{marginTop: '25px'}}><b>Returns</b></p>
-      <div className={styles.divider} />
-      <p>Returns a list of Persona objects</p>
+      <div style={{display: 'flex'}}>
+        <p className={styles.parameter}>dlc</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Boolean!</p>
+      </div>
+      <p>Input <span style={{fontFamily: 'monospace'}}>true</span> to include 
+      dlc content in the query results, or 
+      <span style={{fontFamily: 'monospace'}}> false </span> 
+      to exclude dlc content from the query results.</p>
     </div>
   </div>
   <div style={{
     width: '45%'
   }}>
-    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden', marginBottom: '10px' }}>
+    <div className={styles.codeBlockStyle}>
       <AllPersonasQuery />
     </div>
-    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden' }}>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "dlc": true
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
       <AllPersonasResponse />
     </div>
   </div>
@@ -50,20 +68,219 @@ import styles from './docs.module.css'
         <p className={styles.parameterSeparator}> - </p>
         <p className={styles.parameter}> Int!</p>
       </div>
-    </div>
-    <div>
-      <p style={{marginTop: '25px'}}><b>Returns</b></p>
-      <div className={styles.divider} />
-      <p>Returns a list of Persona objects</p>
+      <p>The ID of the persona to be queried. Personas are stored in 
+      alphabetical order, with their ID corresponding to their position within
+      that order.</p>
     </div>
   </div>
   <div style={{ width: '45%' }}>
-    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden', marginBottom: '10px' }}>
+    <div className={styles.codeBlockStyle}>
       <PersonaByIdQuery />
     </div>
-    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden' }}>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "personaId": 78
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
       <PersonaByIdResponse />
     </div>
   </div>
 </div>
 
+<div className={styles.divider} style={{marginTop: '25px'}}/>
+
+<h2>personaByName</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the details of a single persona.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>name</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> String!</p>
+      </div>
+      <p>The name of the persona to be queried. 
+         Partial values are accepted and all personas that match the
+         parameter value will be queried. The parameter is case and accent 
+         (Arsène) insensitive.</p>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>dlc</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Boolean!</p>
+      </div>
+      <p>Input <span style={{fontFamily: 'monospace'}}>true</span> to include 
+      dlc content in the query results, or 
+      <span style={{fontFamily: 'monospace'}}> false </span> 
+      to exclude dlc content from the query results.</p>
+    </div>
+  </div>
+  <div style={{ width: '45%' }}>
+    <div className={styles.codeBlockStyle}>
+      <PersonaByNameQuery />
+    </div>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "name": "Jack Frost",
+  "dlc": true
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
+      <PersonaByNameResponse />
+    </div>
+  </div>
+</div>
+
+<div className={styles.divider} style={{marginTop: '25px'}}/>
+
+<h2>personaFusionById</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the fusion result of two personas.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>persona1Id</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Int!</p>
+      </div>
+      <p>The ID of one of the two personas to be used in fusion.</p>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>persona2Id</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Int!</p>
+      </div>
+      <p>The ID of one of the two personas to be used in fusion.</p>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>dlc</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Boolean!</p>
+      </div>
+      <p>Input <span style={{fontFamily: 'monospace'}}>true</span> to include 
+      dlc content in the query results, or 
+      <span style={{fontFamily: 'monospace'}}> false </span> 
+      to exclude dlc content from the query results.</p>
+    </div>
+  </div>
+  <div style={{ width: '45%' }}>
+    <div className={styles.codeBlockStyle}>
+      <PersonaFusionByIdQuery />
+    </div>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "persona1Id": 181,
+  "persona2Id": 162,
+  "dlc": true
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
+      <PersonaFusionByIdResponse />
+    </div>
+  </div>
+</div>
+
+<div className={styles.divider} style={{marginTop: '25px'}}/>
+
+<h2>personaFusionByName</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the fusion result of two personas.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>persona1Name</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> String!</p>
+      </div>
+      <p>The name of one of the two personas to be used in fusion.</p>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>persona2Name</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> String!</p>
+      </div>
+      <p>The name of one of the two personas to be used in fusion.</p>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>dlc</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Boolean!</p>
+      </div>
+      <p>Input <span style={{fontFamily: 'monospace'}}>true</span> to include 
+      dlc content in the query results, or 
+      <span style={{fontFamily: 'monospace'}}> false </span> 
+      to exclude dlc content from the query results.</p>
+    </div>
+  </div>
+  <div style={{ width: '45%' }}>
+    <div className={styles.codeBlockStyle}>
+      <PersonaFusionByNameQuery />
+    </div>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "persona1Name": "Succubus",
+  "persona2Name": "Saki Mitama",
+  "dlc": true
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
+      <PersonaFusionByNameResponse />
+    </div>
+  </div>
+</div>
+
+<div className={styles.divider} style={{marginTop: '25px'}}/>
+
+<h2>personaRecipesById</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves all potential fusion combinations to create a given persona.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>personaId</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> String!</p>
+      </div>
+      <p>The ID of the persona to be queried. Personas are stored in 
+      alphabetical order, with their ID corresponding to their position within
+      that order.</p>
+      <div style={{display: 'flex', marginBottom: '5px'}}>
+        <p className={styles.parameter}>dlc</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Boolean!</p>
+      </div>
+      <p>Input <span style={{fontFamily: 'monospace'}}>true</span> to include 
+      dlc content in the query results, or 
+      <span style={{fontFamily: 'monospace'}}> false </span> 
+      to exclude dlc content from the query results.</p>
+    </div>
+  </div>
+  <div style={{ width: '45%' }}>
+    <div className={styles.codeBlockStyle}>
+      <PersonaRecipesByIdQuery />
+    </div>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "personaId": 78,
+  "dlc": true
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
+      <PersonaRecipesByIdResponse />
+    </div>
+  </div>
+</div>
