@@ -1,13 +1,8 @@
----
-sidebar_position: 1
----
+import CodeBlock from '@theme/CodeBlock';
 
-# Personas
 
-### allPersonas
-
-```jsx showLineNumbers
-{
+<CodeBlock language="jsx" title="QUERY" showLineNumbers>{
+`query allPersonas {
   allPersonas {
     personaId,
     name,
@@ -41,13 +36,21 @@ sidebar_position: 1
       curse
     },
     skills {
-      skillId,
-      name,
-      type,
-      effect,
-      cost
+      level,
+      skill {
+        skillId,
+        name,
+        type,
+        effect,
+        cost
+      }
     },
-    trait,
+    trait {
+      traitId,
+      name,
+      category,
+      description
+    },
     background,
     fusionQuote,
     normalItem {
@@ -76,4 +79,4 @@ sidebar_position: 1
     }
   }
 }
-```
+`}</CodeBlock>

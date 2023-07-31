@@ -1,0 +1,69 @@
+---
+hide_table_of_contents: true
+---
+
+import CodeBlock from '@theme/CodeBlock'
+import AllPersonasQuery from './codeBlocks/_allPersonasQuery.mdx'
+import AllPersonasResponse from './codeBlocks/_allPersonasResponse.mdx'
+import PersonaByIdQuery from './codeBlocks/_personaByIdQuery.mdx'
+import PersonaByIdResponse from './codeBlocks/_personaByIdResponse.mdx'
+import styles from './docs.module.css'
+
+<h2>allPersonas</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the details of all personas.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <p>No parameters.</p>
+    </div>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Returns</b></p>
+      <div className={styles.divider} />
+      <p>Returns a list of Persona objects</p>
+    </div>
+  </div>
+  <div style={{
+    width: '45%'
+  }}>
+    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden', marginBottom: '10px' }}>
+      <AllPersonasQuery />
+    </div>
+    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden' }}>
+      <AllPersonasResponse />
+    </div>
+  </div>
+</div>
+
+<div className={styles.divider} style={{marginTop: '25px'}}/>
+
+<h2>personaById</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the details of a single persona.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <div style={{display: 'flex'}}>
+        <p className={styles.parameter}>personaId</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}> Int!</p>
+      </div>
+    </div>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Returns</b></p>
+      <div className={styles.divider} />
+      <p>Returns a list of Persona objects</p>
+    </div>
+  </div>
+  <div style={{ width: '45%' }}>
+    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden', marginBottom: '10px' }}>
+      <PersonaByIdQuery />
+    </div>
+    <div style={{ maxHeight: '750px', overflow: 'scroll', overflowX: 'hidden' }}>
+      <PersonaByIdResponse />
+    </div>
+  </div>
+</div>
+

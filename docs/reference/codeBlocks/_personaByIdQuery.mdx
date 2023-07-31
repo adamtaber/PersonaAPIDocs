@@ -1,9 +1,9 @@
 import CodeBlock from '@theme/CodeBlock';
 
 
-<CodeBlock language="jsx" title="allPersonas" showLineNumbers>{
-`{
-  allPersonas {
+<CodeBlock language="jsx" title="QUERY" showLineNumbers>{
+`query personaById($personaId: Int) {
+  personaById(personaId: $personaId) {
     personaId,
     name,
     arcana,
@@ -36,13 +36,21 @@ import CodeBlock from '@theme/CodeBlock';
       curse
     },
     skills {
-      skillId,
-      name,
-      type,
-      effect,
-      cost
+      level,
+      skill {
+        skillId,
+        name,
+        type,
+        effect,
+        cost
+      }
     },
-    trait,
+    trait {
+      traitId,
+      name,
+      category,
+      description
+    },
     background,
     fusionQuote,
     normalItem {

@@ -1,0 +1,23 @@
+.divider {
+  margin-top: 5px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 1px;
+  background-color: rgb(65, 65, 65);
+}
+
+.parameter {
+  background-color: #282A36;
+  font-family: monospace;
+  padding: 5px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.parameterSeparator {
+  font-family: monospace;
+  padding-top: 5px;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
