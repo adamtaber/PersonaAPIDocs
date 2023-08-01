@@ -1,23 +1,24 @@
 ---
 hide_table_of_contents: true
+sidebar_position: 1
 ---
 
 import CodeBlock from '@theme/CodeBlock'
-import AllPersonasQuery from './codeBlocks/_allPersonasQuery.mdx'
-import AllPersonasResponse from './codeBlocks/_allPersonasResponse.mdx'
-import PersonaByIdQuery from './codeBlocks/_personaByIdQuery.mdx'
-import PersonaByIdResponse from './codeBlocks/_personaByIdResponse.mdx'
-import PersonaByNameQuery from './codeBlocks/_personaByNameQuery.mdx'
-import PersonaByNameResponse from './codeBlocks/_personaByNameResponse.mdx'
-import PersonaFusionByIdQuery from './codeBlocks/_personaFusionByIdQuery.mdx'
-import PersonaFusionByIdResponse from './codeBlocks/_personaFusionByIdResponse.mdx'
-import PersonaFusionByNameQuery from './codeBlocks/_personaFusionByNameQuery.mdx'
-import PersonaFusionByNameResponse from './codeBlocks/_personaFusionByNameResponse.mdx'
-import PersonaRecipesByIdQuery from './codeBlocks/_personaRecipesByIdQuery.mdx'
-import PersonaRecipesByIdResponse from './codeBlocks/_personaRecipesByIdResponse.mdx'
+import AllPersonasQuery from './codeBlocks/personas/_allPersonasQuery.mdx'
+import AllPersonasResponse from './codeBlocks/personas/_allPersonasResponse.mdx'
+import PersonaByIdQuery from './codeBlocks/personas/_personaByIdQuery.mdx'
+import PersonaByIdResponse from './codeBlocks/personas/_personaByIdResponse.mdx'
+import PersonaByNameQuery from './codeBlocks/personas/_personaByNameQuery.mdx'
+import PersonaByNameResponse from './codeBlocks/personas/_personaByNameResponse.mdx'
+import PersonaFusionByIdQuery from './codeBlocks/personas/_personaFusionByIdQuery.mdx'
+import PersonaFusionByIdResponse from './codeBlocks/personas/_personaFusionByIdResponse.mdx'
+import PersonaFusionByNameQuery from './codeBlocks/personas/_personaFusionByNameQuery.mdx'
+import PersonaFusionByNameResponse from './codeBlocks/personas/_personaFusionByNameResponse.mdx'
+import PersonaRecipesByIdQuery from './codeBlocks/personas/_personaRecipesByIdQuery.mdx'
+import PersonaRecipesByIdResponse from './codeBlocks/personas/_personaRecipesByIdResponse.mdx'
 import styles from './docs.module.css'
 
-<h2>allPersonas</h2>
+<h2 id='allPersonas'>allPersonas</h2>
 <div style={{display: 'flex', justifyContent: 'space-between'}}>
   <div style={{width: '45%'}}>
     <p>Retrieves the details of all personas.</p>
@@ -56,7 +57,7 @@ import styles from './docs.module.css'
 
 <div className={styles.divider} style={{marginTop: '25px'}}/>
 
-<h2>personaById</h2>
+<h2 id="personaById">personaById</h2>
 <div style={{display: 'flex', justifyContent: 'space-between'}}>
   <div style={{width: '45%'}}>
     <p>Retrieves the details of a single persona.</p>
@@ -92,7 +93,7 @@ import styles from './docs.module.css'
 
 <div className={styles.divider} style={{marginTop: '25px'}}/>
 
-<h2>personaByName</h2>
+<h2 id="personaByName">personaByName</h2>
 <div style={{display: 'flex', justifyContent: 'space-between'}}>
   <div style={{width: '45%'}}>
     <p>Retrieves the details of a single persona.</p>
@@ -139,7 +140,7 @@ import styles from './docs.module.css'
 
 <div className={styles.divider} style={{marginTop: '25px'}}/>
 
-<h2>personaFusionById</h2>
+<h2 id="personaFusionById">personaFusionById</h2>
 <div style={{display: 'flex', justifyContent: 'space-between'}}>
   <div style={{width: '45%'}}>
     <p>Retrieves the fusion result of two personas.</p>
@@ -190,7 +191,7 @@ import styles from './docs.module.css'
 
 <div className={styles.divider} style={{marginTop: '25px'}}/>
 
-<h2>personaFusionByName</h2>
+<h2 id="personaFusionByName">personaFusionByName</h2>
 <div style={{display: 'flex', justifyContent: 'space-between'}}>
   <div style={{width: '45%'}}>
     <p>Retrieves the fusion result of two personas.</p>
@@ -241,7 +242,7 @@ import styles from './docs.module.css'
 
 <div className={styles.divider} style={{marginTop: '25px'}}/>
 
-<h2>personaRecipesById</h2>
+<h2 id="personaRecipesById">personaRecipesById</h2>
 <div style={{display: 'flex', justifyContent: 'space-between'}}>
   <div style={{width: '45%'}}>
     <p>Retrieves all potential fusion combinations to create a given persona.</p>

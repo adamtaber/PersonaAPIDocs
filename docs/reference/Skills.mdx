@@ -1,0 +1,112 @@
+---
+hide_table_of_contents: true
+sidebar_position: 2
+---
+
+import styles from './docs.module.css'
+import CodeBlock from '@theme/CodeBlock'
+import AllSkillsQuery from './codeBlocks/skills/_allSkillsQuery.mdx'
+import AllSkillsResponse from './codeBlocks/skills/_allSkillsResponse.mdx'
+import SkillByIdQuery from './codeBlocks/skills/_skillByIdQuery.mdx'
+import SkillByIdResponse from './codeBlocks/skills/_skillByIdResponse.mdx'
+import SkillByNameQuery from './codeBlocks/skills/_skillByNameQuery.mdx'
+import SkillByNameResponse from './codeBlocks/skills/_skillByNameResponse.mdx'
+
+<h2 id='allSkills'>allSkills</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the details of all skills.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <p>No parameters</p>
+    </div>
+  </div>
+  <div style={{
+    width: '45%'
+  }}>
+    <div className={styles.codeBlockStyle}>
+      <AllSkillsQuery />
+    </div>
+    <div className={styles.codeBlockStyle}>
+      <AllSkillsResponse />
+    </div>
+  </div>
+</div>
+
+<div className={styles.divider} style={{marginTop: '25px'}}/>
+
+<h2 id='skillById'>skillById</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the details of a single skill.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <div style={{display: 'flex'}}>
+        <p className={styles.parameter}>skillId</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}>Int!</p>
+      </div>
+      <p>The ID of the skill to be queried. Skills are stored in 
+      alphabetical order, with their ID corresponding to their position within
+      that order.</p>
+    </div>
+  </div>
+  <div style={{
+    width: '45%'
+  }}>
+    <div className={styles.codeBlockStyle}>
+      <SkillByIdQuery />
+    </div>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "skillId": 326
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
+      <SkillByIdResponse />
+    </div>
+  </div>
+</div>
+
+<div className={styles.divider} style={{marginTop: '25px'}}/>
+
+<h2 id='skillByName'>skillByName</h2>
+<div style={{display: 'flex', justifyContent: 'space-between'}}>
+  <div style={{width: '45%'}}>
+    <p>Retrieves the details of all skills that match the query.</p>
+    <div>
+      <p style={{marginTop: '25px'}}><b>Parameters</b></p>
+      <div className={styles.divider}/>
+      <div style={{display: 'flex'}}>
+        <p className={styles.parameter}>name</p>
+        <p className={styles.parameterSeparator}> - </p>
+        <p className={styles.parameter}>String!</p>
+      </div>
+      <p>The name of the skill to be queried. 
+         Partial values are accepted and all personas that match the
+         parameter value will be queried. The parameter is case and accent 
+         (Arsène) insensitive.</p>
+    </div>
+  </div>
+  <div style={{
+    width: '45%'
+  }}>
+    <div className={styles.codeBlockStyle}>
+      <SkillByNameQuery />
+    </div>
+    <div style={{marginBottom: '15px'}}>
+      <CodeBlock language="jsx" title="VARIABLES" showLineNumbers>{
+`{
+  "name": "Myriad Truths"
+}`  
+      }</CodeBlock>
+    </div>
+    <div className={styles.codeBlockStyle}>
+      <SkillByNameResponse />
+    </div>
+  </div>
+</div>
