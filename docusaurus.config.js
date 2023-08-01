@@ -61,6 +61,7 @@ const config = {
           alt: 'My Site Logo',
           src: 'img/logo.svg',
         },
+        className: 'navbar',
         items: [
           {
             type: 'docSidebar',
@@ -76,8 +77,8 @@ const config = {
           },
           {
             href: 'https://github.com/facebook/docusaurus',
-            label: 'GitHub',
             position: 'right',
+            className: 'navbar-github-link'
           },
         ],
       },

@@ -1,13 +1,12 @@
 import CodeBlock from '@theme/CodeBlock'
 
 <CodeBlock language="jsx" title="QUERY" showLineNumbers>{
-`query allSkills {
-  allSkills {
-    skillId,
+`query itemById($itemId: Int) {
+  itemById(itemId: $itemId) {
+    itemId,
     name,
     type,
-    effect,
-    cost
+    description
   }
 }
 `}</CodeBlock>

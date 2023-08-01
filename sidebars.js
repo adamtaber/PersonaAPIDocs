@@ -68,6 +68,31 @@ const sidebars = {
           href: '/docs/reference/Skills/#skillByName'
         }
       ]
+    },
+    {
+      type: 'category',
+      label: 'Items',
+      link: {
+        type: 'doc',
+        id: 'reference/Items'
+      },
+      items: [
+        {
+          type: 'link',
+          label: 'allItems',
+          href: '/docs/reference/Items/#allItems'
+        },
+        {
+          type: 'link',
+          label: 'itemById',
+          href: '/docs/reference/Items/#itemById'
+        },
+        {
+          type: 'link',
+          label: 'itemByName',
+          href: '/docs/reference/Items/#itemByName'
+        }
+      ]
     }
   ],
 };
