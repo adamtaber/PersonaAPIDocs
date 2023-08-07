@@ -1,0 +1,47 @@
+import styles from '@site/docs/docs.module.css'
+import ObjectField from '@site/src/components/ObjectField'
+
+# Skill
+
+## Skill Object
+
+```graphql
+type Skill {
+  skillId: ID!,
+  name: String!,
+  type: String!,
+  effect: String!,
+  cost: Int
+}
+```
+### Fields
+
+<ObjectField field='skillId' type='ID!' nonNull={true} category='scalar'/>
+
+Unique identifier for the Skill object.
+
+---
+
+<ObjectField field='name' type='String!' nonNull={true} category='scalar'/>
+
+The Skill's name.
+
+---
+
+<ObjectField field='type' type='String!' nonNull={true} category='scalar'/>
+
+The Skill's attribute. 
+
+---
+
+<ObjectField field='effect' type='String!' nonNull={true} category='scalar'/>
+
+The effect of the Skill.
+
+---
+
+<ObjectField field='cost' type='Int' nonNull={false} category='scalar'/>
+
+The cost of the Skill. The value represents a percentage of HP 
+for Phys and Gun Skills, and represents a quantity of SP for
+all other skills.

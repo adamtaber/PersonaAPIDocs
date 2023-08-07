@@ -1,0 +1,45 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+
+# itemById
+
+Retrieves the details of a single item.
+
+## Parameters
+
+<ParamFormat param="itemId" type="ID!" />
+
+The ID of the item to be queried. Items are stored in 
+alphabetical order, with their ID corresponding to their 
+position within that order. 
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query itemById($itemId: ID!) {
+  itemById(itemId: $itemId) {
+    itemId,
+    name,
+    type,
+    description
+  }
+}
+```
+
+```jsx title="VARIABLES" showLineNumbers
+{
+  "itemId": "121"
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "itemById": {
+      "itemId": 121,
+      "name": "Paradise Lost R",
+      "type": "Weapon - Joker only"
+      "description": "Atk 340/Acc 98/+Reduce Curse dmg (high)"
+    }
+  }
+}
+```

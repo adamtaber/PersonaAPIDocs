@@ -1,0 +1,53 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+
+# itemByName
+
+Retrieves the details of all items that match the parameters.
+
+## Parameters
+
+<ParamFormat param="name" type="String!" />
+
+The name of the item to be queried. 
+Partial values are accepted and all items that match the
+parameter value will be queried. The parameter is case insensitive
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query itemByName($name: String!) {
+  itemByName(name: $name) {
+    itemId,
+    name,
+    type,
+    description
+  }
+}
+```
+
+```jsx title="VARIABLES" showLineNumbers
+{
+  "name": "Paradise Lost"
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "itemByName": [
+      {
+        "itemId": 122,
+        "name": "Paradise Lost",
+        "type": "Weapon - Joker only",
+        "description": "Atk 325 / Acc 92 / +Reduce Curse dmg (high)"
+      },
+      {
+        "itemId": 123,
+        "name": "Paradise Lost R",
+        "type": "Weapon - Joker only",
+        "description": "Atk 340 / Acc 98 / +Reduce Curse dmg (high)"
+      }
+    ]
+  }
+}
+```

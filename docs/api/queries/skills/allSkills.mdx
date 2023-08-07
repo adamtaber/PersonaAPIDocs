@@ -1,0 +1,36 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+
+# allSkills
+
+Retrieves the details of all skills.
+
+## Parameters
+
+No parameters
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query allSkills {
+  allSkills {
+    ...SkillFragment
+  }
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "allSkills": [
+      ...,
+      {
+        "skillId": "326",
+        "name": "Myriad Truths",
+        "type": "almighty",
+        "effect": "Deal 3 times heavy Almighty damage to all foes.",
+        "cost": 4000
+      },
+      ...
+    ]
+  }
+}

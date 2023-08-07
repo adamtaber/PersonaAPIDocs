@@ -1,0 +1,81 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+import DlcDescription from '@site/src/components/DlcDescription'
+
+
+# personaFusionByName
+
+
+Retrieves the fusion result of two personas.
+
+
+## Parameters
+
+
+<ParamFormat param="persona1Name" type="String!" />
+
+The name of one of the two personas to be used in fusion.
+
+
+<ParamFormat param="persona2Name" type="String!" />
+
+The name of one of the two personas to be used in fusion.
+
+
+<ParamFormat param="dlc" type="Boolean!" />
+
+<DlcDescription />
+
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query personaFusionByName(
+  $persona1Name: String, 
+  $persona2Name: String,
+  $dlc: Boolean
+) {
+  personaFusionByName(
+    persona1Name: $persona1Name, 
+    persona2Name: $persona2Name,
+    dlc: $dlc
+  ) {
+    ...PersonaFragment
+  }
+}
+```
+
+```jsx title="VARIABLES" showLineNumbers
+{
+  "persona1Name": "Succubus",
+  "persona2Name": "Saki Mitama",
+  "dlc": true
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "personaFusionByName": {
+      "personaId": 78,
+      "name": "Jack Frost",
+      "arcana": "Magician",
+      "baseLevel": 11,
+      "inheritanceType": "Ice",
+      "special": false,
+      "dlc": false,
+      "treasure": false,
+      "treasureMods": null,
+      "stats": PersonaStats,
+      "affinities": PersonaAffinities,
+      "skills": [Skill],
+      "trait": Trait,
+      "background": "A winter fairy of European descent. He leaves ice patterns on windows and nips people's noses. Though normally an innocent creature, he will freeze his victims to death if provoked.",
+      "fusionQuote": "I'm Jack Frost, ho! I know I'm just a mask, but take good care of me-hee, ho!",
+      "normalItem": Item,
+      "fusionAlarmItem": Item,
+      "normalSkillCard": null,
+      "fusionAlarmSkillCard": null
+    },
+  }
+}
+```

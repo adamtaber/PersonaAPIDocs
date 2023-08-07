@@ -1,0 +1,47 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+
+# skillByName
+
+Retrieves the details of all skills that match the parameters.
+
+## Parameters
+
+<ParamFormat param="name" type="String!" />
+
+The name of the skill to be queried. 
+Partial values are accepted and all skills that match the
+parameter value will be queried. The parameter is case insensitive
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query skillByName($name: String!) {
+  skillByName(name: $name) {
+    skillId,
+    name,
+    type,
+    effect,
+    cost
+  }
+}
+```
+
+```jsx title="VARIABLES" showLineNumbers
+{
+  "name": "Myriad Truths"
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": [
+    {
+      "skilId": "326",
+      "name": "Myriad Truths",
+      "type": "almighty",
+      "effect": "Deal 3 times heavy Almighty damage to all foes.",
+      "cost": 4000
+    },
+  ]
+}
+```

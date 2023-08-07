@@ -1,0 +1,47 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+
+# skillById
+
+Retrieves the details of a single skill.
+
+## Parameters
+
+<ParamFormat param="skillId" type="ID!" />
+
+The ID of the skill to be queried. Skills are stored in 
+alphabetical order, with their ID corresponding to their 
+position within that order. 
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query skillById($skillId: ID!) {
+  skillById(skillId: $skillId) {
+    skillId,
+    name,
+    type,
+    effect,
+    cost
+  }
+}
+```
+
+```jsx title="VARIABLES" showLineNumbers
+{
+  "skillId": "326"
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "skillById": {
+      "skillId": "326",
+      "name": "Myriad Truths",
+      "type": "almighty",
+      "effect": "Deal 3 times heavy Almighty damage to all foes.",
+      "cost": 4000
+    }
+  }
+}
+```

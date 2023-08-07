@@ -1,0 +1,67 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+import DlcDescription from '@site/src/components/DlcDescription'
+
+# personaByName
+
+Retrieves the details of all personas that match the 
+defined parameter.
+
+## Parameters
+
+<ParamFormat param="name" type="String!" />
+
+The name of the persona to be queried. 
+Partial values are accepted and all personas that match the
+parameter value will be queried. The parameter is case and accent 
+(Arsène) insensitive
+
+<ParamFormat param="dlc" type="Boolean!" />
+
+<DlcDescription />
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query personaByName($name: String, $dlc: Boolean) {
+  personaByName(name: $name, dlc: $dlc) {
+    ...PersonaFragment
+  }
+}
+```
+
+```jsx title="VARIABLES" showLineNumbers
+{
+  "name": "Jack Frost",
+  "dlc": true
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "personaByName": [
+      {
+        "personaId": 78,
+        "name": "Jack Frost",
+        "arcana": "Magician",
+        "baseLevel": 11,
+        "inheritanceType": "Ice",
+        "special": false,
+        "dlc": false,
+        "treasure": false,
+        "treasureMods": null,
+        "stats": PersonaStats,
+        "affinities": PersonaAffinities,
+        "skills": [Skill],
+        "trait": Trait,
+        "background": "A winter fairy of European descent. He leaves ice patterns on windows and nips people's noses. Though normally an innocent creature, he will freeze his victims to death if provoked.",
+        "fusionQuote": "I'm Jack Frost, ho! I know I'm just a mask, but take good care of me-hee, ho!",
+        "normalItem": Item,
+        "fusionAlarmItem": Item,
+        "normalSkillCard": null,
+        "fusionAlarmSkillCard": null
+      }
+    ]
+  }
+}
+```

@@ -1,0 +1,52 @@
+import styles from '@site/docs/docs.module.css'
+import ObjectField from '@site/src/components/ObjectField'
+
+# Item
+
+## Item Object
+
+```graphql
+type Item {
+  itemId: ID!,
+  name: String!,
+  type: String!,
+  description: String!
+}
+```
+### Fields
+
+<ObjectField field='itemId' type='ID!' nonNull={true} category='scalar'/>
+
+Unique identifier for the Item object.
+
+---
+
+<ObjectField field='name' type='String!' nonNull={true} category='scalar'/>
+
+The Item's name.
+
+---
+
+<ObjectField field='type' type='String!' nonNull={true} category='scalar'/>
+
+The category that the Item belongs to. The following Item types are valid:
+- Accessory
+- Protector
+- Weapon
+- Gun
+
+Protectors are gender-specific, with a few exceptions, and the
+gender is included in the type.
+
+Weapons and guns are character-specific and the character is included
+in the type.
+
+---
+
+<ObjectField field='description' type='String!' nonNull={true} category='scalar'/>
+
+The effect of the Item when equipped. 
+
+
+
+

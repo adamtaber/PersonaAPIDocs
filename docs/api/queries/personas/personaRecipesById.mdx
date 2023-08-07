@@ -1,0 +1,96 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+import DlcDescription from '@site/src/components/DlcDescription'
+
+# personaRecipesById
+
+Retrieves all potential fusion combinations to create a given persona.
+
+## Parameters
+
+<ParamFormat param="personaId" type="ID!" />
+
+The ID of the persona to be queried. Personas are stored in 
+alphabetical order, with their ID corresponding to their position 
+within that order.
+
+<ParamFormat param="dlc" type="Boolean!" />
+
+<DlcDescription />
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query personaRecipesById(
+  $personaId: ID!, 
+  $dlc: Boolean!
+) {
+  personaRecipesById(
+    personaId: $personaId, 
+    dlc: $dlc
+  ) {
+    ...PersonaFragment
+  }
+}
+```
+
+```jsx title="VARIABLES" showLineNumbers
+{
+  "personaId": "78",
+  "dlc": true
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "personaFusionByName": [
+      {
+        "persona1": {
+          "personaId": "162",
+          "name": "Saki Mitama",
+          "arcana": "Lovers",
+          "baseLevel": 6,
+          "inheritanceType": "Healing",
+          "special": false,
+          "dlc": false,
+          "treasure": false,
+          "treasureMods": null,
+          "stats": PersonaStats,
+          "affinities": PersonaAffinities,
+          "skills": [Skill],
+          "trait": Trait,
+          "background": "One of the four aspects of Shinto thought, it brings great bounty from the hunt. It is said to aid in love, profit, and growth, and can create new paths.",
+          "fusionQuote": "I am Saki Mitama. Love and sympathy are all you need in life. I shall become your mask and guide you to intense passion...",
+          "normalItem": Item,
+          "fusionAlarmItem": Item,
+          "normalSkillCard": null,
+          "fusionAlarmSkillCard": null
+        }
+      },
+      {
+        "persona2": {
+          "personaId": "181",
+          "name": "Succubus",
+          "arcana": "Moon",
+          "baseLevel": 7,
+          "inheritanceType": "Curse",
+          "special": false,
+          "dlc": false,
+          "treasure": false,
+          "treasureMods": null,
+          "stats": PersonaStats,
+          "affinities": PersonaAffinities,
+          "skills": [Skill],
+          "trait": Trait,
+          "background": "A female demon of European lore in medieval times. They visit sleeping men and have sexual intercourse with them. The victims don't wake up but may dream of the encounter.",
+          "fusionQuote": "I am Succubus. You want to be with me so much you're making me a mask...? Sure, do whatever your heart desires.",
+          "normalItem": Item,
+          "fusionAlarmItem": Item,
+          "normalSkillCard": null,
+          "fusionAlarmSkillCard": null
+        }
+      }
+    ]
+  }
+}
+```

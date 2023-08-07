@@ -1,0 +1,35 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+
+# allItems
+
+Retrieves the details of all items.
+
+## Parameters
+
+No parameters
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query allItems {
+  allItems {
+    ...ItemFragment
+  }
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "allItems": [
+      ...,
+      {
+        "itemId": "121",
+        "name": "Paradise Lost R",
+        "type": "Weapon - Joker only"
+        "description": "Atk 340/Acc 98/+Reduce Curse dmg (high)"
+      },
+      ...
+    ]
+  }
+}

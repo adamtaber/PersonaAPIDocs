@@ -1,0 +1,23 @@
+:root {
+  --code-color: #f6f8fa;
+}
+
+[data-theme='dark'] {
+  --code-color: #282A36;
+}
+
+.parameter {
+  background-color: var(--code-color);
+  font-family: monospace;
+  padding: 5px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.parameterSeparator {
+  font-family: monospace;
+  padding-top: 5px;
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 5px;
+}

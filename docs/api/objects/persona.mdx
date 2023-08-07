@@ -1,0 +1,277 @@
+import styles from '@site/docs/docs.module.css'
+import ObjectField from '@site/src/components/ObjectField'
+
+# Persona
+
+## Persona Object
+
+```graphql
+type Persona {
+  personaId: ID!,
+  name: String!,
+  arcana: String!,
+  baseLevel: Int!,
+  inheritanceType: String!,
+  special: Boolean!,
+  dlc: Boolean!,
+  treasure: Boolean!,
+  treasureMods: [TreasureMod],
+  stats: PersonaStats!,
+  affinities: PersonaAffinities!,
+  skills: [PersonaSkill]!,
+  trait: Trait,
+  treasureTraits: [Trait],
+  background: String!,
+  fusionQuote: String,
+  normalItem: Item,
+  fusionAlarmItem: Item,
+  normalSkillCard: Skill,
+  fusionAlarmSkillCard: Skill
+}
+```
+### Fields
+
+<ObjectField field='personaId' type='ID!' nonNull={true} category='scalar'/>
+
+Unique identifier for the Persona object. Personas IDs correspond to 
+the position of a Persona when all Personas are sorted alphabetically.
+
+---
+
+<ObjectField field='name' type='String!' nonNull={true} category='scalar'/>
+
+The Personas's full name.
+
+---
+
+<ObjectField field='arcana' type='String!' nonNull={true} category='scalar'/>
+
+The Arcana of the Persona.
+
+---
+
+<ObjectField field='baseLevel' type='Int!' nonNull={true} category='scalar'/>
+
+The initial level of a Persona.
+
+---
+
+<ObjectField field='inheritanceType' type='String!' nonNull={true} category='scalar'/>
+
+A hidden classification that determines what skills a 
+Persona can inherit during fusion.
+
+---
+
+<ObjectField field='special' type='Boolean!' nonNull={true} category='scalar'/>
+
+Whether or not a Persona can only be fused through a special fusion.
+
+---
+
+<ObjectField field='dlc' type='Boolean!' nonNull={true} category='scalar'/>
+
+Whether or not a Persona is only available through the DLC.
+
+---
+
+<ObjectField field='treasure' type='Boolean!' nonNull={true} category='scalar'/>
+
+Whether or not a Persona is a Teasure Demon.
+
+---
+
+<ObjectField field='treasureMods' type='[TreasureMod]' nonNull={false} category='object'/>
+
+An array of modifier values corresponding to each arcana. This is only present 
+in Treasure Demons and is used to calculate fusions.
+
+---
+
+<ObjectField field='stats' type='PersonaStats!!' nonNull={true} category='object'/>
+
+The Persona's stats (Strength, Magic, Endurance, Agility, and Luck).
+
+---
+
+<ObjectField field='affinities' type='PersonaAffinities!' nonNull={true} category='object'/>
+
+The Persona's affinities for each of the elemental and physical categories.
+
+---
+
+<ObjectField field='skills' type='[PersonaSkill]!' nonNull={true} category='object'/>
+
+An array of the Persona's skills along with the level that each skill is learned.
+
+---
+
+<ObjectField field='trait' type='Trait' nonNull={false} category='object'/>
+
+The Persona's trait.
+
+---
+
+<ObjectField field='treasureTraits' type='Trait' nonNull={false} category='object'/>
+
+An array of traits that can be passed down in fusion.
+Only present with Treasure Demons
+
+---
+
+<ObjectField field='background' type='String!' nonNull={true} category='scalar'/>
+
+Background information about the Persona.
+
+---
+
+<ObjectField field='fusionQuote' type='String' nonNull={false} category='scalar'/>
+
+What the Persona says when it is fused.
+
+---
+
+<ObjectField field='normalItem' type='Item' nonNull={false} category='object'/>
+
+The item received from the Persona through Electric Chair Execution.
+
+---
+
+<ObjectField field='fusionAlarmItem' type='Item' nonNull={false} category='object'/>
+
+The item received from the Personoa through Electric Chair Execution
+during a fusion alarm.
+
+---
+
+<ObjectField field='normalSkillCard' type='Skill' nonNull={false} category='object'/>
+
+The skill card received from the Persona through Electric Chair Execution.
+
+---
+
+<ObjectField field='fusionAlarmSkillCard' type='Skill' nonNull={false} category='object'/>
+
+The item received from the Personoa through Electric Chair Execution
+during a fusion alarm.
+
+## TreasureMod Object
+
+```graphql
+type TreasureMod {
+  arcana: String!,
+  modifier: Int!
+}
+```
+
+### Fields
+
+<ObjectField field='arcana' type='String!' nonNull={true} category='scalar'/>
+
+The arcana that the modifier is applied to during fusion.
+
+---
+
+<ObjectField field='modifier' type='Int!' nonNull={true} category='scalar'/>
+
+The modifier that is applied during fusion.
+
+
+## PersonaStats Object
+
+```graphql
+type PersonaStats {
+  strength: Int!,
+  magic: Int!,
+  endurance: Int!,
+  agility: Int!,
+  luck: Int!
+}
+```
+
+### Fields
+
+<ObjectField field='strength' type='Int!' nonNull={true} category='scalar'/>
+
+The value of the Strength stat.
+
+---
+
+<ObjectField field='magic' type='Int!' nonNull={true} category='scalar'/>
+
+The value of the Magic stat.
+
+---
+
+<ObjectField field='endurance' type='Int!' nonNull={true} category='scalar'/>
+
+The value of the Endurance stat.
+
+---
+
+<ObjectField field='agility' type='Int!' nonNull={true} category='scalar'/>
+
+The value of the Agility stat.
+
+---
+
+<ObjectField field='luck' type='Int!' nonNull={true} category='scalar'/>
+
+The value of the Luck stat.
+
+## PersonaAffinities Object
+
+```graphql
+type PersonaStats {
+  phys: String!,
+  gun: String!,
+  fire: String!,
+  ice: String!,
+  elec: String!,
+  wind: String!,
+  psy: String!,
+  nuke: String!,
+  bless: String!,
+  curse: String!
+}
+```
+
+### Fields
+
+Each field's value is one of the abbreviation's in the table below or the
+symbol "-", meaning that there is no affinity for that element.
+
+| Abbreviation |  Affinity  |
+| -----------  | ---------- |
+| wk           | weak       |
+| rs           | resist     |
+| ab           | absorb     |
+| rp           | repel      |
+| nu           | null       |
+
+In the game, "absorb" is instead listed as "drain" with an
+abbreviation of "dr", and "resist" is listed as "strong" with an
+abbreviation of "str". These incorrect abbreviations are used here
+to match the most popular Persona 5 Royal resources found online.
+
+## PersonaSkill Object
+
+```graphql
+type PersonaSkill {
+  level: Int!,
+  skill: Skill!
+}
+```
+
+### Fields
+
+<ObjectField field='level' type='Int!' nonNull={true} category='scalar'/>
+
+The level that the skill is learned.
+
+---
+
+<ObjectField field='skill' type='Skill!' nonNull={true} category='object'/>
+
+The details of the Skill object.
+

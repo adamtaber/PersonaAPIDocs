@@ -1,0 +1,43 @@
+import styles from '@site/docs/docs.module.css'
+import ObjectField from '@site/src/components/ObjectField'
+
+# Trait
+
+## Trait Object
+
+```graphql
+type Trait {
+  traitId: ID!,
+  name: String!,
+  category: String!,
+  description: String!,
+}
+```
+### Fields
+
+<ObjectField field='traitId' type='ID!' nonNull={true} category='scalar'/>
+
+Unique identifier for the Trait object.
+
+---
+
+<ObjectField field='name' type='String!' nonNull={true} category='scalar'/>
+
+The Trait's name.
+
+---
+
+<ObjectField field='category' type='String!' nonNull={true} category='scalar'/>
+
+The category in which the Trait belongs. Can be any of the following:
+- SP Reduction
+- Ailment Booster
+- Offensive
+- Defensive
+- Other 
+
+---
+
+<ObjectField field='description' type='String!' nonNull={true} category='scalar'/>
+
+The effect of the Trait.

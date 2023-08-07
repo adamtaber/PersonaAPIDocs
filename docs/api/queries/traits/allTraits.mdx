@@ -1,0 +1,35 @@
+import ParamFormat from '@site/src/components/ParamFormat'
+
+# allTraits
+
+Retrieves the details of all traits.
+
+## Parameters
+
+No parameters
+
+## Query
+
+```graphql title="QUERY" showLineNumbers
+query allTraits {
+  allTraits {
+    ...TraitFragment
+  }
+}
+```
+
+```jsx title="RESPONSE" showLineNumbers
+{
+  "data": {
+    "allTraits": [
+      ...,
+      {
+        "traitId": "5",
+        "name": "Ave Maria",
+        "category": "SP Reduction",
+        "description": "Reduce cost of Support skills by 75%."
+      },
+      ...
+    ]
+  }
+}
